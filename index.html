@@ -1,1052 +1,230 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frost — Manisan segar untuk hati yang hangat. Es krim buatan tangan, gelato, dan hidangan penutup beku dibuat dengan bahan-bahan lokal.">
-  <meta name="keywords" content="es krim, gelato, hidangan penutup beku, toko roti, katering, manisan buatan tangan">
-  <meta name="author" content="Frost Desserts">
-  <title>Frost — Manisan Segar untuk Hati yang Hangat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Fonts: Lora (Serif) & Manrope (Sans-serif) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Pop HTML CSS Template</title>
+<!--
 
-  <style>
-    /* =========================================
-       CSS VARIABLES & RESET
-       ========================================= */
-    :root {
-      --color-bg: #FDFBF7;
-      --color-bg-alt: #F2EFE9;
-      --color-text-main: #2C2C2C;
-      --color-text-light: #666666;
-      --color-primary: #7FB5A8; /* Sage Green */
-      --color-primary-dark: #5E8F84;
-      --color-secondary: #D4A373; /* Caramel/Gold */
-      --color-accent: #E29578; /* Coral/Pinkish */
-      --color-white: #FFFFFF;
-      --color-scoop-strawberry: #FF9AA2;
-      --color-scoop-mint: #B5EAD7;
-      --color-scoop-vanilla: #FFF2CC;
-      
-      --font-serif: 'Lora', serif;
-      --font-sans: 'Manrope', sans-serif;
-      
-      --spacing-container: 1200px;
-      --spacing-section: 5rem;
-      --border-radius: 12px;
-      --transition: all 0.3s ease;
-    }
+Template 2097 Pop
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+https://www.tooplate.com/view/2097-pop
+
+-->
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                  <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css">                <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>                       <!-- http://kenwheeler.github.io/slick/ -->
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="css/tooplate-style.css">                               <!-- Templatemo style -->
+
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
     
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--color-bg);
-      color: var(--color-text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5 { font-family: var(--font-serif); color: var(--color-text-main); line-height: 1.2; }
-    a { text-decoration: none; color: inherit; transition: var(--transition); }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; object-fit: cover; }
-    button { font-family: inherit; border: none; background: none; cursor: pointer; }
-
-    /* =========================================
-       UTILITY CLASSES
-       ========================================= */
-    .container { max-width: var(--spacing-container); margin: 0 auto; padding: 0 1.5rem; }
-    .section { padding: var(--spacing-section) 0; }
-    .section--alt { background-color: var(--color-bg-alt); }
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-align: center;
-      transition: var(--transition);
-    }
-    .btn--primary { background-color: var(--color-text-main); color: var(--color-white); }
-    .btn--primary:hover { background-color: var(--color-primary); transform: translateY(-2px); }
-    .btn--outline { border: 2px solid var(--color-text-main); color: var(--color-text-main); margin-left: 1rem; }
-    .btn--outline:hover { background-color: var(--color-text-main); color: var(--color-white); }
-    .btn--sage { background-color: var(--color-primary); color: var(--color-white); }
-    .btn--sage:hover { background-color: var(--color-primary-dark); }
-
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-
-    /* =========================================
-       HEADER & SIDEBAR
-       ========================================= */
-    .hamburger {
-      position: fixed;
-      top: 1.5rem;
-      left: 1.5rem;
-      z-index: 1000;
-      width: 40px;
-      height: 40px;
-      background: var(--color-white);
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-    .hamburger:hover { transform: scale(1.1); }
-    .hamburger__lines span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background-color: var(--color-text-main);
-      margin: 4px 0;
-      transition: var(--transition);
-    }
-
-    .sidebar-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); z-index: 900;
-      opacity: 0; visibility: hidden; transition: var(--transition);
-    }
-    .sidebar-overlay.is-open { opacity: 1; visibility: visible; }
-
-    .sidebar {
-      position: fixed; top: 0; left: 0; bottom: 0;
-      width: 300px; background: var(--color-white); z-index: 950;
-      transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-      padding: 6rem 2rem 2rem; box-shadow: 4px 0 20px rgba(0,0,0,0.05);
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .sidebar.is-open { transform: translateX(0); }
-    
-    .sidebar__logo { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; }
-    .sidebar__logo span { color: var(--color-primary); }
-    .sidebar__tagline { font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.5rem; font-style: italic; }
-    
-    .sidebar__nav ul { margin-top: 2rem; }
-    .sidebar__nav li { margin-bottom: 1rem; }
-    .sidebar__nav a {
-      display: flex; align-items: center; font-size: 1.1rem; font-weight: 500; color: var(--color-text-main);
-      padding: 0.5rem; border-radius: 8px;
-    }
-    .sidebar__nav a:hover, .sidebar__nav a.active { background-color: var(--color-bg-alt); color: var(--color-primary); }
-    .nav-icon { margin-right: 12px; font-size: 1.2rem; }
-
-    .sidebar__hours { font-size: 0.9rem; color: var(--color-text-light); border-top: 1px solid #eee; padding-top: 1.5rem; }
-    .sidebar__hours strong { color: var(--color-text-main); }
-
-    /* =========================================
-       HERO SECTION
-       ========================================= */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      padding-top: 4rem;
-      overflow: hidden;
-    }
-    .hero__content { max-width: 600px; position: relative; z-index: 2; }
-    .hero__badge {
-      display: inline-block; background: var(--color-primary); color: white;
-      padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
-      margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;
-    }
-    .hero__title { font-size: 3.5rem; margin-bottom: 1.5rem; }
-    .hero__title em { font-style: italic; color: var(--color-primary); }
-    .hero__subtitle { font-size: 1.125rem; color: var(--color-text-light); margin-bottom: 2.5rem; max-width: 480px; }
-    .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
-    
-    /* Ice Cream Decoration */
-    .hero__deco {
-      position: absolute; top: 50%; right: 5%; transform: translateY(-50%);
-      width: 400px; height: 500px; z-index: 1; pointer-events: none;
-    }
-    .scoop {
-      position: absolute; width: 160px; height: 160px; border-radius: 50%;
-      box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1), 10px 20px 30px rgba(0,0,0,0.15);
-      animation: float 6s ease-in-out infinite;
-    }
-    .scoop--strawberry { background: radial-gradient(circle at 30% 30%, #FFC3C7, var(--color-scoop-strawberry)); top: 20%; right: 20%; z-index: 3; }
-    .scoop--mint { background: radial-gradient(circle at 30% 30%, #D8F3DC, var(--color-scoop-mint)); top: 40%; right: 5%; z-index: 2; animation-delay: 1s; }
-    .scoop--vanilla { background: radial-gradient(circle at 30% 30%, #FFFDF0, var(--color-scoop-vanilla)); top: 60%; right: 25%; z-index: 1; animation-delay: 2s; }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
-    }
-
-    /* =========================================
-       FLAVORS SECTION (MARQUEE)
-       ========================================= */
-    .section__header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
-    .section__label { color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; }
-    .section__title { font-size: 2.5rem; margin-bottom: 1rem; }
-    .section__desc { color: var(--color-text-light); }
-
-    .marquee { overflow: hidden; position: relative; width: 100%; padding: 2rem 0; }
-    .marquee::before, .marquee::after {
-      content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2;
-    }
-    .marquee::before { left: 0; background: linear-gradient(to right, var(--color-bg), transparent); }
-    .marquee::after { right: 0; background: linear-gradient(to left, var(--color-bg), transparent); }
-
-    .marquee__track {
-      display: flex; gap: 2rem; width: max-content;
-      animation: scroll 40s linear infinite;
-    }
-    .marquee__track--reverse { animation-direction: reverse; }
-
-    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    .flavor-card {
-      width: 320px; background: var(--color-white); border-radius: var(--border-radius);
-      padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); flex-shrink: 0;
-      position: relative; transition: var(--transition);
-    }
-    .flavor-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    .flavor-card__tag {
-      position: absolute; top: 1rem; right: 1rem; background: var(--color-text-main);
-      color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;
-    }
-    .flavor-card__swatch { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 1rem; box-shadow: inset -2px -2px 5px rgba(0,0,0,0.1); }
-    .flavor-card__type { font-size: 0.8rem; color: var(--color-primary); font-weight: 600; text-transform: uppercase; }
-    .flavor-card__name { font-size: 1.4rem; margin: 0.25rem 0 0.5rem; }
-    .flavor-card__desc { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.5; }
-
-    /* =========================================
-       BUILDER SECTION
-       ========================================= */
-    .builder__layout { display: flex; gap: 4rem; align-items: center; flex-wrap: wrap; }
-    .builder__steps { flex: 1; min-width: 300px; }
-    .builder-step { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
-    .builder-step__num {
-      width: 50px; height: 50px; background: var(--color-bg-alt); color: var(--color-text-main);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.2rem; flex-shrink: 0; border: 2px solid var(--color-primary);
-    }
-    .builder-step__title { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .builder-step__text { color: var(--color-text-light); font-size: 0.95rem; }
-
-    .builder__preview { 
-      flex: 1; display: flex; flex-direction: column; align-items: center; 
-      justify-content: center; background: white; padding: 3rem; border-radius: 20px; 
-      box-shadow: 0 10px 40px rgba(0,0,0,0.05); position: relative; min-width: 300px;
-    }
-    .builder__preview-bowl { width: 120px; height: 80px; background: #8d6e63; border-radius: 0 0 60px 60px; position: relative; margin-bottom: 2rem; }
-    .builder__preview-scoop1 {
-      width: 80px; height: 80px; background: var(--color-scoop-strawberry); border-radius: 50%;
-      position: absolute; top: -50px; left: 20px; z-index: 3;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
-    }
-    .builder__preview-scoop2 {
-      width: 80px; height: 80px; background: var(--color-scoop-mint); border-radius: 50%;
-      position: absolute; top: -30px; left: 45px; z-index: 2;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
-    }
-    .builder__preview-scoop3 {
-      width: 80px; height: 80px; background: var(--color-scoop-vanilla); border-radius: 50%;
-      position: absolute; top: -10px; left: 0px; z-index: 1;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
-    }
-    .builder__preview-text { font-weight: 700; font-size: 1.2rem; }
-    .builder__preview-price { color: var(--color-primary); font-weight: 600; font-size: 1.1rem; margin-top: 0.5rem; }
-    .builder__preview-note { font-size: 0.8rem; color: var(--color-text-light); }
-
-    /* =========================================
-       CATERING SECTION
-       ========================================= */
-    .catering__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .cart-card { background: var(--color-white); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: var(--transition); }
-    .cart-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-    .cart-card__visual { height: 250px; position: relative; overflow: hidden; }
-    .cart-card__visual img { width: 100%; height: 100%; transition: transform 0.5s; }
-    .cart-card:hover .cart-card__visual img { transform: scale(1.05); }
-    .cart-card__visual-label {
-      position: absolute; top: 1rem; left: 1rem; background: var(--color-white);
-      padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-    }
-    .cart-card__body { padding: 2rem; }
-    .cart-card__name { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .cart-card__desc { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
-    .cart-card__details { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .cart-card__detail {
-      font-size: 0.8rem; background: var(--color-bg-alt); padding: 4px 10px; border-radius: 6px; color: var(--color-text-main);
-    }
-    .cart-card__price { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); }
-
-    /* =========================================
-       SEASONAL SECTION (TABS)
-       ========================================= */
-    .seasonal-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
-    .seasonal-tab {
-      padding: 1rem 2rem; border-radius: 50px; border: 1px solid #ddd; background: var(--color-white);
-      font-weight: 600; transition: var(--transition); display: flex; align-items: center; gap: 0.5rem;
-    }
-    .seasonal-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
-    .seasonal-tab.is-active { background: var(--color-text-main); color: var(--color-white); border-color: var(--color-text-main); }
-    .seasonal-tab__icon { font-size: 1.2rem; }
-
-    .seasonal-panels { position: relative; }
-    .seasonal-panel {
-      display: none; background: var(--color-white); border-radius: 20px; overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.05); animation: fadeEffect 0.5s;
-    }
-    .seasonal-panel.is-active { display: flex; flex-direction: column; }
-    @media(min-width: 768px) { .seasonal-panel.is-active { flex-direction: row; } }
-
-    @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
-
-    .seasonal-panel__visual { flex: 1; height: 350px; position: relative; }
-    .seasonal-panel__visual img { width: 100%; height: 100%; object-fit: cover; }
-    .seasonal-panel__badge {
-      position: absolute; top: 1.5rem; left: 1.5rem; background: var(--color-primary); color: white;
-      padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;
-    }
-    .seasonal-panel__details { flex: 1; padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-    .seasonal-panel__season-label { color: var(--color-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-    .seasonal-panel__name { font-size: 2rem; margin-bottom: 1rem; }
-    .seasonal-panel__desc { color: var(--color-text-light); margin-bottom: 1.5rem; }
-    .seasonal-panel__meta { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .seasonal-panel__meta-tag { font-size: 0.9rem; color: var(--color-text-light); display: flex; align-items: center; gap: 5px; }
-
-    /* =========================================
-       LOYALTY SECTION
-       ========================================= */
-    .loyalty__layout { display: flex; gap: 4rem; align-items: center; flex-wrap: wrap; }
-    .loyalty__info { flex: 1; }
-    .perk { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-    .perk__icon {
-      width: 30px; height: 30px; background: var(--color-primary); color: white; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;
-    }
-    .perk__text { font-size: 0.95rem; color: var(--color-text-light); }
-    .perk__text strong { color: var(--color-text-main); }
-
-    .stamp-card {
-      background: var(--color-white); padding: 2rem; border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 100%; max-width: 400px; margin: 0 auto;
-      border: 2px dashed #ddd;
-    }
-    .stamp-card__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-    .stamp-card__title { font-weight: 700; font-family: var(--font-serif); font-size: 1.2rem; }
-    .stamp-card__count { font-weight: 700; color: var(--color-primary); }
-    .stamp-card__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 1.5rem; }
-    .stamp {
-      aspect-ratio: 1; border: 2px solid #eee; border-radius: 8px; display: flex;
-      align-items: center; justify-content: center; font-size: 1.2rem; background: #fafafa;
-    }
-    .stamp--filled { background: var(--color-primary); border-color: var(--color-primary); color: white; }
-    .stamp--reward { background: var(--color-secondary); border-color: var(--color-secondary); color: white; font-size: 0.9rem; font-weight: bold; }
-    .stamp-card__footer { text-align: center; font-size: 0.9rem; color: var(--color-text-light); font-weight: 500; }
-
-    /* =========================================
-       FOOTER
-       ========================================= */
-    .footer { background: #1a1a1a; color: #eee; padding: 4rem 0 2rem; font-size: 0.9rem; }
-    .footer__top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; margin-bottom: 3rem; }
-    .footer__brand { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
-    .footer__brand span { color: var(--color-primary); }
-    .footer__copy { color: #888; max-width: 300px; }
-    .footer__links { display: flex; gap: 3rem; flex-wrap: wrap; }
-    .footer__col h4 { color: var(--color-white); margin-bottom: 1.2rem; font-family: var(--font-sans); }
-    .footer__col li { margin-bottom: 0.8rem; }
-    .footer__col a:hover { color: var(--color-primary); }
-    .footer__bottom { border-top: 1px solid #333; padding-top: 2rem; text-align: center; color: #666; font-size: 0.85rem; }
-
-    /* =========================================
-       RESPONSIVE
-       ========================================= */
-    @media (max-width: 768px) {
-      .hero__title { font-size: 2.5rem; }
-      .hero__deco { opacity: 0.3; width: 300px; }
-      .sidebar { width: 85%; }
-      .builder__layout, .loyalty__layout, .footer__top { flex-direction: column; }
-      .cart-card__visual { height: 200px; }
-      .seasonal-panel__visual { height: 250px; }
-      .seasonal-panel__details { padding: 1.5rem; }
-      .seasonal-panel__name { font-size: 1.5rem; }
-    }
-  </style>
 </head>
+
 <body>
+    <div id="tm-bg"></div>
+    <div id="tm-wrap">
+        <div class="tm-main-content">
+            <div class="container tm-site-header-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col">
+                        <div class="tm-site-header">
+                            <h1 class="mb-4">POP design</h1>
+                            <img src="img/underline.png" class="img-fluid mb-4">
+                            <p>New HTML Template with pop up pages and use this layout for your website</p>        
+                        </div>                        
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="content">
+                            <div class="grid">
+                                <div class="grid__item" id="home-link">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-home fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Welcome</span>
+                                            <div class="product__bg"></div>        
+                                        </div>                                    
+                                        <div class="product__description">
+                                            <div class="row mb-3">
+                                                <div class="col-12">
+                                                    <h2 class="tm-page-title">Welcome to Pop Design</h2>        
+                                                </div>
+                                            </div>                                        
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                    <img src="img/welcome-1.jpg" class="img-fluid mb-3">
+                                                    <p>You are allowed to download, modify and use this template for your commercial or business websites. </p>
+                                                    <p>Please tell your friends about <a rel="nofollow" href="https://fb.com/tooplate" target="_parent">Tooplate</a>. That will be very helpful for us. Thank you.</p>    
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                    <p>You are NOT allowed to put this template ZIP file for a download purpose on any template collection website.</p>
+                                                    <p>If you have any kind of question or comment, please feel free to <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact us</a>. You are welcome.</p>
+                                                    <img src="img/welcome-2.jpg" class="img-fluid">
+                                                </div>                                        
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
 
-  <!-- Tombol Hamburger Mobile -->
-  <button class="hamburger" id="hamburger" aria-label="Toggle navigasi menu" aria-expanded="false">
-    <div class="hamburger__lines">
-      <span></span>
-      <span></span>
-      <span></span>
+                                <div class="grid__item" id="team-link">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-users fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Our Team</span>
+                                            <div class="product__bg"></div>            
+                                        </div>                                     
+                                        <div class="product__description">
+                                            <div class="p-sm-4 p-2">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h2 class="tm-page-title">Background of Our Team</h2>        
+                                                    </div>
+                                                </div>
+                                                <div class="row tm-reverse-sm">
+                                                    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                                                        <p class="mb-4">Vestibulum aliquet, arcu accumsan lobortis bibendum, justo velit efficitur lorem, at pulvinar mi justo nec lacus. Nullam et libero aliquet, luctus nunc sit amet, tincidunt ligula. Sed finibus ante sed tortor cursus, nec malesuada lectus interdum.</p>
+                                                        <p class="mb-4">Sed ex turpis, vulputate in efficitur id, lobortis eget nibh. Pellentesque maximus ipsum eget velit imperdiet sodales. Suspendisse in blandit mi.</p>
+                                                        <p class="mb-5">Pellentesque finibus felis risus, ut malesuada felis viverra at. Quisque accumsan in mi non hendrerit.</p>
+                                                        <a href="#" class="btn tm-btn-gray">Read More</a>        
+                                                    </div>                                                
+                                                    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-lg-0 mb-sm-4 mb-4">
+                                                        <img src="img/team.jpg" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__item">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-handshake fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Our Work</span>
+                                            <div class="product__bg"></div>             
+                                        </div>                                                                 
+                                        <div class="product__description">
+                                            <div class="p-sm-4 p-2">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h2 class="tm-page-title">Our Work</h2>        
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <p>Aliquam interdum, nisl sed faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor, vel rhoncus libero. Integer at lacus velit. Nullam dapibus venenatis placerat.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="p-sm-4 p-2 tm-img-container">
+                                                            <div class="tm-img-slider" id="tmImgSlider">
+                                                              <a href="#" class="tm-slider-img-link"><img src="img/gallery-img-01-tn.jpg" alt="Image 1" class="img-fluid tm-slider-img"></a>
+                                                              <a href="#" class="tm-slider-img-link"><img src="img/gallery-img-02-tn.jpg" alt="Image 2" class="img-fluid tm-slider-img"></a>
+                                                              <a href="#" class="tm-slider-img-link"><img src="img/gallery-img-03-tn.jpg" alt="Image 3" class="img-fluid tm-slider-img"></a>
+                                                              <a href="#" class="tm-slider-img-link"><img src="img/gallery-img-04-tn.jpg" alt="Image 4" class="img-fluid tm-slider-img"></a>
+                                                              <a href="#" class="tm-slider-img-link"><img src="img/gallery-img-05-tn.jpg" alt="Image 5" class="img-fluid tm-slider-img"></a>
+                                                              <a href="#" class="tm-slider-img-link"><img src="img/gallery-img-06-tn.jpg" alt="Image 6" class="img-fluid tm-slider-img"></a>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                </div>
+
+                                <div class="grid__item">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-comments fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">Contact</span>
+                                            <div class="product__bg"></div>             
+                                        </div>                                                              
+                                        <div class="product__description">
+                                            <div class="pt-sm-4 pb-sm-4 pl-sm-5 pr-sm-5 pt-2 pb-2 pl-3 pr-3">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h2 class="tm-page-title">Contact Us</h2>        
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col-12">
+                                                        <p>Lorem ipsum dolor site amet, consectetur adipiscing elit. Aliquam interdum, nisl sed faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor, vel rhoncus libero.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <form action="index.html" method="post" class="contact-form">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6">
+                                                                  <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
+                                                                </div>
+                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 tm-col-email">
+                                                                  <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
+                                                                </div>
+                                                            </div>                                                        
+                                                            <div class="form-group">
+                                                              <textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary tm-btn-submit">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>                       
+                    </div>
+                </div>                
+            </div>
+            <footer>
+                <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year">2020</span> Your Company. 
+                
+                Design: <a rel="nofollow" href="https://www.tooplate.com" class="tm-text-highlight">Tooplate</a></p>
+            </footer>
+        </div> <!-- .tm-main-content -->  
     </div>
-  </button>
+    <!-- load JS -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>         <!-- https://jquery.com/ -->    
+    <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->  
+    <script src="js/anime.min.js"></script>                     <!-- http://animejs.com/ -->
+    <script src="js/main.js"></script>  
+    <script>      
 
-  <!-- Overlay Sidebar -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        function setupFooter() {
+            var pageHeight = $('.tm-site-header-container').height() + $('footer').height() + 100;
 
-  <!-- Navigasi Sidebar -->
-  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigasi utama">
-    <div class="sidebar__brand">
-      <div class="sidebar__logo">Fr<span>o</span>st</div>
-      <div class="sidebar__tagline">Manisan Segar untuk Hati Hangat</div>
-    </div>
+            var main = $('.tm-main-content');
 
-    <nav class="sidebar__nav">
-      <ul>
-        <li><a href="#hero" class="active"><span class="nav-icon">&#9678;</span> Beranda</a></li>
-        <li><a href="#flavors"><span class="nav-icon">&#10047;</span> Rasa</a></li>
-        <li><a href="#builder"><span class="nav-icon">&#9733;</span> Buat Es Krimmu</a></li>
-        <li><a href="#catering"><span class="nav-icon">&#9738;</span> Katering</a></li>
-        <li><a href="#seasonal"><span class="nav-icon">&#10053;</span> Musiman</a></li>
-        <li><a href="#loyalty"><span class="nav-icon">&#10084;</span> Loyalitas</a></li>
-      </ul>
-    </nav>
+            if($(window).height() < pageHeight) {
+                main.addClass('tm-footer-relative');
+            }
+            else {
+                main.removeClass('tm-footer-relative');   
+            }
+        }
 
-    <div class="sidebar__footer">
-      <div class="sidebar__hours">
-        <strong>Jam Buka</strong><br>
-        Sen – Jum: 11siang – 9malam<br>
-        Sab – Min: 10pagi – 10malam
-      </div>
-    </div>
-  </aside>
+        /* DOM is ready
+        ------------------------------------------------*/
+        $(function(){
 
-  <!-- Konten Utama -->
-  <main class="main">
+            setupFooter();
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="container hero__content">
-        <div class="hero__badge reveal">Sedang Menyajikan</div>
-        <h1 class="hero__title reveal reveal-delay-1">
-          Hidup ini terlalu singkat<br><em>untuk hidangan penutup yang membosankan.</em>
-        </h1>
-        <p class="hero__subtitle reveal reveal-delay-2">
-          Es krim dan gelato buatan tangan yang dibuat segar setiap pagi dengan susu lokal, buah musiman, dan sedikit kejutan yang tak terduga.
-        </p>
-        <div class="hero__actions reveal reveal-delay-3">
-          <a href="#flavors" class="btn btn--primary">Jelajahi Rasa</a>
-          <a href="#catering" class="btn btn--outline">Pesan Gerobak</a>
-        </div>
-      </div>
+            $(window).resize(function(){
+                setupFooter();
+            });
 
-      <!-- Dekorasi Es Krim -->
-      <div class="hero__deco" aria-hidden="true">
-        <div class="scoop scoop--strawberry">
-          <div class="scoop--highlight"></div>
-        </div>
-        <div class="scoop scoop--mint">
-          <div class="scoop--highlight"></div>
-        </div>
-        <div class="scoop scoop--vanilla">
-          <div class="scoop--highlight"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FLAVOR WHEEL — Ticker Marquee -->
-    <section class="section section--alt flavors-section" id="flavors">
-      <div class="container section__header reveal">
-        <span class="section__label">Roda Rasa</span>
-        <h2 class="section__title">Pilih scoop sempurnamu</h2>
-        <p class="section__desc">Dari klasik abadi hingga eksperimen yang berputar, setiap rasa dimulai dengan resep batch kecil dan bahan-bahan asli dan utuh.</p>
-      </div>
-
-      <div class="marquee">
-        <!-- Baris 1: Gulir ke Kiri -->
-        <div class="marquee__track">
-          <!-- Set Asli -->
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #fce4b8, #e6c68a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Vanila Biji Tahiti</h3>
-              <p class="flavor-card__desc">Polong vanila asli Tahiti yang direndam dalam basis custard dengan krim organik. Kaya, floral, dan tidak buatan.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__tag">Populer</div>
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #6b3a2a, #3e2118);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Es Krim</span>
-              <h3 class="flavor-card__name">Cokelat Hitam Truffle</h3>
-              <p class="flavor-card__desc">Cokelat Belgia 70% kakao dilipat ke dalam basis yang padat dan lembut dengan serutan truffle buatan tangan.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, var(--color-scoop-mint), #88c9b5);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Mint Chip Segar</h3>
-              <p class="flavor-card__desc">Daun peppermint asli — tanpa ekstrak — dicampur dengan susu organik dan potongan cokelat hitam dari cokelat lokal.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__tag">Musiman</div>
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #c9b3d6, #9b7eb8);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Lavender Madu</h3>
-              <p class="flavor-card__desc">Lavender kering Prancis direndam dalam madu bunga liar dan diaduk perlahan hingga akhiran yang halus dan floral.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #a8d8ea, #6bb7d4);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Sorbet</span>
-              <h3 class="flavor-card__name">Kelapa Spirulina Biru</h3>
-              <p class="flavor-card__desc">Campuran bebas susu yang cerah dari spirulina dan susu kelapa yang krim. Tropis, menyegarkan, dan biru alami.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #d4a76a, #b8863e);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Es Krim</span>
-              <h3 class="flavor-card__name">Karamel Garam Pecan</h3>
-              <p class="flavor-card__desc">Karamel buatan rumah dicampur dengan garam laut Maldon dan kacang Georgia yang dikaramelisasi. Klasik manis-gurih.</p>
-            </div>
-          </div>
-
-          <!-- Duplikat untuk loop mulus -->
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #fce4b8, #e6c68a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Vanila Biji Tahiti</h3>
-              <p class="flavor-card__desc">Polong vanila asli Tahiti yang direndam dalam basis custard dengan krim organik.</p>
-            </div>
-          </div>
-          <div class="flavor-card">
-            <div class="flavor-card__tag">Populer</div>
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #6b3a2a, #3e2118);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Es Krim</span>
-              <h3 class="flavor-card__name">Cokelat Hitam Truffle</h3>
-              <p class="flavor-card__desc">Cokelat Belgia 70% kakao dilipat ke dalam basis yang padat dan lembut.</p>
-            </div>
-          </div>
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, var(--color-scoop-mint), #88c9b5);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Mint Chip Segar</h3>
-              <p class="flavor-card__desc">Daun peppermint asli dicampur dengan susu organik.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Baris 2: Gulir ke Kanan (Reverse) -->
-        <div class="marquee__track marquee__track--reverse">
-          <div class="flavor-card">
-            <div class="flavor-card__tag">Baru</div>
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f4a4b8, #e07a8a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Sorbet</span>
-              <h3 class="flavor-card__name">Stroberi Basil</h3>
-              <p class="flavor-card__desc">Stroberi musim panas matang bertemu basil segar dari kebun dalam sorbet bebas susu yang ramah vegan.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #8b6f4e, #5c4632);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Es Krim</span>
-              <h3 class="flavor-card__name">Espresso Kukis Remah</h3>
-              <p class="flavor-card__desc">Es krim espresso dua shot dilapisi dengan potongan kukis cokelat dan siraman karamel.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #e8d5a3, #c4a96a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">K Pistachio Crema</h3>
-              <p class="flavor-card__desc">Kacang pistachio Sicilia yang dipanggang dicampur menjadi gelato yang halus. Gurih, mentega, dan otentik.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__tag">Vegan</div>
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f7c59f, #ef8e38);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Sorbet</span>
-              <h3 class="flavor-card__name">Mangga Markisa</h3>
-              <p class="flavor-card__desc">Mangga Alphonso matang dan markisa asam diaduk menjadi sorbet bebas susu yang cerah dan tropis.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f0c2c2, #d4868a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Es Krim</span>
-              <h3 class="flavor-card__name">Cokelat Putih Frambos</h3>
-              <p class="flavor-card__desc">Lecetan frambos asam dilipat melalui es krim cokelat putih yang krim dengan keriuk beri beku kering.</p>
-            </div>
-          </div>
-
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #b6d7a8, #7ab55c);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Matcha Wijen Hitam</h3>
-              <p class="flavor-card__desc">Matcha kelas upacara diaduk dengan pasta wijen hitam dipanggang. Bumi, gurih, dan sangat memuaskan.</p>
-            </div>
-          </div>
-
-          <!-- Duplikat -->
-          <div class="flavor-card">
-            <div class="flavor-card__tag">Baru</div>
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f4a4b8, #e07a8a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Sorbet</span>
-              <h3 class="flavor-card__name">Stroberi Basil</h3>
-              <p class="flavor-card__desc">Stroberi musim panas matang bertemu basil segar dari kebun dalam sorbet bebas susu.</p>
-            </div>
-          </div>
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #8b6f4e, #5c4632);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Es Krim</span>
-              <h3 class="flavor-card__name">Espresso Kukis Remah</h3>
-              <p class="flavor-card__desc">Es krim espresso dua shot dilapisi dengan potongan kukis cokelat.</p>
-            </div>
-          </div>
-          <div class="flavor-card">
-            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #e8d5a3, #c4a96a);"></div>
-            <div class="flavor-card__info">
-              <span class="flavor-card__type">Gelato</span>
-              <h3 class="flavor-card__name">Pistachio Crema</h3>
-              <p class="flavor-card__desc">Kacang pistachio Sicilia yang dipanggang dicampur menjadi gelato yang halus.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BUILDER SECTION -->
-    <section class="section builder" id="builder">
-      <div class="container section__header reveal">
-        <span class="section__label">Buat Sendiri</span>
-        <h2 class="section__title">Sundae-mu, aturanmu</h2>
-        <p class="section__desc">Lakukan empat langkah pembuatan sundae di konter atau pesan sebelumnya untuk diambil. Lebih dari 2.000 kombinasi untuk dicoba.</p>
-      </div>
-
-      <div class="container builder__layout">
-        <div class="builder__steps">
-          <!-- Langkah 1 -->
-          <div class="builder-step reveal">
-            <div class="builder-step__num">1</div>
-            <div>
-              <h3 class="builder-step__title">Pilih Dasar Anda</h3>
-              <p class="builder-step__text">Es krim, gelato, yogurt beku, atau sorbet bebas susu. Pilih satu, dua, atau ambil semuanya untuk mangkuk yang pamungkas.</p>
-            </div>
-          </div>
-
-          <!-- Langkah 2 -->
-          <div class="builder-step reveal reveal-delay-1">
-            <div class="builder-step__num">2</div>
-            <div>
-              <h3 class="builder-step__title">Pilih Wadah</h3>
-              <p class="builder-step__text">Cone wafel klasik, mangkuk gula buatan tangan, cangkir kaca, atau cone mega celup cokelat khas kami.</p>
-            </div>
-          </div>
-
-          <!-- Langkah 3 -->
-          <div class="builder-step reveal reveal-delay-2">
-            <div class="builder-step__num">3</div>
-            <div>
-              <h3 class="builder-step__title">Muat Topping</h3>
-              <p class="builder-step__text">Oreo hancur, kelapa panggang, pecan manis, beri segar, gigitan brownie, potongan mochi, dan 20 lainnya.</p>
-            </div>
-          </div>
-
-          <!-- Langkah 4 -->
-          <div class="builder-step reveal reveal-delay-3">
-            <div class="builder-step__num">4</div>
-            <div>
-              <h3 class="builder-step__title">Siram & Selesaikan</h3>
-              <p class="builder-step__text">Fudge panas, saus karamel, siraman matcha, saus frambos, atau madu — ditapi sedikit garam laut atau glitter yang bisa dimakan.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Visual Preview -->
-        <div class="builder__preview reveal">
-          <div class="builder__preview-bowl">
-            <div class="builder__preview-scoop1"></div>
-            <div class="builder__preview-scoop2"></div>
-            <div class="builder__preview-scoop3"></div>
-          </div>
-          <p class="builder__preview-text">Sundae Buat-Sendiri</p>
-          <p class="builder__preview-price">Mulai Rp 75.000</p>
-          <p class="builder__preview-note">Dasar + 3 topping termasuk</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CATERING SECTION -->
-    <section class="section section--alt" id="catering">
-      <div class="container section__header reveal">
-        <span class="section__label">Sewa Gerobak Katering</span>
-        <h2 class="section__title">Bawa rasa manis kepadamu</h2>
-        <p class="section__desc">Gerobak vintage kami hadir dengan stok pilihan rasa Anda, penyaji yang ramah, dan semua topping yang diimpikan tamu Anda.</p>
-      </div>
-
-      <div class="container catering__grid">
-        <!-- Cart 1: Mini -->
-        <div class="cart-card reveal">
-          <div class="cart-card__visual">
-            <!-- Menggunakan Picsum sebagai placeholder agar tampilan tetap muncul -->
-            <img src="https://picsum.photos/seed/frost-mini/400/300" alt="Pengaturan gerobak es krim untuk pesta kecil" loading="lazy">
-            <span class="cart-card__visual-label">Intim</span>
-          </div>
-          <div class="cart-card__body">
-            <h3 class="cart-card__name">Mini Scoop</h3>
-            <p class="cart-card__desc">Sempurna untuk ulang tahun, baby shower, dan perayaan kantor kecil. Gerobak ringkas, rasa besar.</p>
-            <div class="cart-card__details">
-              <span class="cart-card__detail">Hingga 30 tamu</span>
-              <span class="cart-card__detail">3 rasa</span>
-              <span class="cart-card__detail">2 jam</span>
-            </div>
-            <div class="cart-card__price">Rp 3.500.000 <small>/ acara</small></div>
-          </div>
-        </div>
-
-        <!-- Cart 2: Classic -->
-        <div class="cart-card reveal reveal-delay-1">
-          <div class="cart-card__visual">
-            <img src="https://picsum.photos/seed/frost-classic/400/300" alt="Gerobak es krim vintage di acara luar ruangan" loading="lazy">
-            <span class="cart-card__visual-label">Paling Populer</span>
-          </div>
-          <div class="cart-card__body">
-            <h3 class="cart-card__name">Gerobak Klasik</h3>
-            <p class="cart-card__desc">Pengalaman gerobak vintage khas kami. Ideal untuk pernikahan, acara korporat, dan festival akhir pekan.</p>
-            <div class="cart-card__details">
-              <span class="cart-card__detail">Hingga 100 tamu</span>
-              <span class="cart-card__detail">6 rasa</span>
-              <span class="cart-card__detail">3 jam</span>
-              <span class="cart-card__detail">Bar topping</span>
-            </div>
-            <div class="cart-card__price">Rp 7.500.000 <small>/ acara</small></div>
-          </div>
-        </div>
-
-        <!-- Cart 3: Deluxe -->
-        <div class="cart-card reveal reveal-delay-2">
-          <div class="cart-card__visual">
-            <img src="https://picsum.photos/seed/frost-deluxe/400/300" alt="Hidangan penutup elegan di acara katering premium" loading="lazy">
-            <span class="cart-card__visual-label">Premium</span>
-          </div>
-          <div class="cart-card__body">
-            <h3 class="cart-card__name">Ruang Besar (Grand)</h3>
-            <p class="cart-card__desc">Pengalaman lengkap — pengaturan gerobak ganda dengan stasiun gelato, bar wafel, dan koordinator acara khusus.</p>
-            <div class="cart-card__details">
-              <span class="cart-card__detail">Hingga 250 tamu</span>
-              <span class="cart-card__detail">10 rasa</span>
-              <span class="cart-card__detail">4 jam</span>
-              <span class="cart-card__detail">Bar wafel</span>
-              <span class="cart-card__detail">Koordinator</span>
-            </div>
-            <div class="cart-card__price">Rp 14.000.000 <small>/ acara</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEASONAL SECTION -->
-    <section class="section" id="seasonal">
-      <div class="container section__header reveal">
-        <span class="section__label">Edisi Terbatas</span>
-        <h2 class="section__title">Scoop musiman, segar & sementara</h2>
-        <p class="section__desc">Setiap musim membawa jajaran batch kecil yang terinspirasi dari apa yang matang, apa yang di udara, dan sedikit nostalgia.</p>
-      </div>
-
-      <!-- Season Tabs -->
-      <div class="container seasonal-tabs reveal" role="tablist">
-        <button class="seasonal-tab is-active" data-season="spring" role="tab" aria-selected="true" aria-controls="panel-spring">
-          <span class="seasonal-tab__icon" aria-hidden="true">&#127800;</span> Semi
-        </button>
-        <button class="seasonal-tab" data-season="summer" role="tab" aria-selected="false" aria-controls="panel-summer">
-          <span class="seasonal-tab__icon" aria-hidden="true">&#9728;</span> Panas
-        </button>
-        <button class="seasonal-tab" data-season="autumn" role="tab" aria-selected="false" aria-controls="panel-autumn">
-          <span class="seasonal-tab__icon" aria-hidden="true">&#127810;</span> Gugur
-        </button>
-        <button class="seasonal-tab" data-season="winter" role="tab" aria-selected="false" aria-controls="panel-winter">
-          <span class="seasonal-tab__icon" aria-hidden="true">&#10052;</span> Dingin
-        </button>
-      </div>
-
-      <!-- Tab Panels -->
-      <div class="container seasonal-panels reveal">
-
-        <!-- Panel Semi -->
-        <div class="seasonal-panel is-active" id="panel-spring" role="tabpanel">
-          <div class="seasonal-panel__visual">
-            <img src="https://picsum.photos/seed/spring-sakura/800/600" alt="Gelato almond bunga sakura dengan kelopak" loading="lazy">
-            <span class="seasonal-panel__badge">Tersedia Mar – Mei</span>
-          </div>
-          <div class="seasonal-panel__details">
-            <span class="seasonal-panel__season-label">Koleksi Semi</span>
-            <h3 class="seasonal-panel__name">Almond Bunga Sakura</h3>
-            <p class="seasonal-panel__desc">Gelato almond floral yang di atasnya diberi kelopak bunga sakura yang dikaramelisasi dan sedikit air mawar. Ringan, wangi, dan sangat bermimpi — seperti berjalan-jalan di kebun bunga mekar.</p>
-            <div class="seasonal-panel__meta">
-              <span class="seasonal-panel__meta-tag"><span>&#127846;</span> Gelato</span>
-              <span class="seasonal-panel__meta-tag"><span>&#10024;</span> Batch Terbatas</span>
-              <span class="seasonal-panel__meta-tag"><span>&#127793;</span> Info Alergi Kacang</span>
-            </div>
-            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Coba Sekarang</a>
-          </div>
-        </div>
-
-        <!-- Panel Panas -->
-        <div class="seasonal-panel" id="panel-summer" role="tabpanel">
-          <div class="seasonal-panel__visual">
-            <img src="https://picsum.photos/seed/summer-mango/800/600" alt="Sorbet mangga cabai limau dengan buah tropis" loading="lazy">
-            <span class="seasonal-panel__badge">Tersedia Jun – Agu</span>
-          </div>
-          <div class="seasonal-panel__details">
-            <span class="seasonal-panel__season-label">Koleksi Panas</span>
-            <h3 class="seasonal-panel__name">Mangga Cabai Limau</h3>
-            <p class="seasonal-panel__desc">Sorbet mangga Alphonso manis yang ditaburi bumbu cabai limau Tajín dan remahan kulit limau. Di mana panas tropis bertemu manis beku — rasa yang paling banyak diminta untuk kembali.</p>
-            <div class="seasonal-panel__meta">
-              <span class="seasonal-panel__meta-tag"><span>&#127847;</span> Sorbet</span>
-              <span class="seasonal-panel__meta-tag"><span>&#127793;</span> Bebas Susu</span>
-              <span class="seasonal-panel__meta-tag"><span>&#127798;</span> Pedas Ringan</span>
-            </div>
-            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Coba Sekarang</a>
-          </div>
-        </div>
-
-        <!-- Panel Gugur -->
-        <div class="seasonal-panel" id="panel-autumn" role="tabpanel">
-          <div class="seasonal-panel__visual">
-            <img src="https://picsum.photos/seed/autumn-pumpkin/800/600" alt="Es krim labu chai swirl dengan rempah musim gugur" loading="lazy">
-            <span class="seasonal-panel__badge">Tersedia Sep – Nov</span>
-          </div>
-          <div class="seasonal-panel__details">
-            <span class="seasonal-panel__season-label">Koleksi Gugur</span>
-            <h3 class="seasonal-panel__name">Swirl Labu Chai</h3>
-            <p class="seasonal-panel__desc">Es krim labu berbumbu diaduk dengan karamel masala chai dan di atasnya diberi biji labu yang dipanggang. Nyaman, menghangatkan, dan alasan sempurna untuk menambahkan satu scoop lagi.</p>
-            <div class="seasonal-panel__meta">
-              <span class="seasonal-panel__meta-tag"><span>&#127846;</span> Es Krim</span>
-              <span class="seasonal-panel__meta-tag"><span>&#10024;</span> Favorit Penggemar</span>
-              <span class="seasonal-panel__meta-tag"><span>&#127869;</span> Mengandung Susu</span>
-            </div>
-            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Coba Sekarang</a>
-          </div>
-        </div>
-
-        <!-- Panel Dingin -->
-        <div class="seasonal-panel" id="panel-winter" role="tabpanel">
-          <div class="seasonal-panel__visual">
-            <img src="https://picsum.photos/seed/winter-xmas/800/600" alt="Es krim brownie peppermint bark dengan potongan cokelat" loading="lazy">
-            <span class="seasonal-panel__badge">Tersedia Des – Feb</span>
-          </div>
-          <div class="seasonal-panel__details">
-            <span class="seasonal-panel__season-label">Koleksi Dingin</span>
-            <h3 class="seasonal-panel__name">Brownie Peppermint Bark</h3>
-            <p class="seasonal-panel__desc">Es krim cokelat peppermint hitam yang dimuati potongan brownie yang lembut dan hancuran cokelat putih peppermint bark. Kemewahan liburan di setiap gigitan.</p>
-            <div class="seasonal-panel__meta">
-              <span class="seasonal-panel__meta-tag"><span>&#127846;</span> Es Krim</span>
-              <span class="seasonal-panel__meta-tag"><span>&#127876;</span> Spesial Liburan</span>
-              <span class="seasonal-panel__meta-tag"><span>&#10024;</span> Batch Terbatas</span>
-            </div>
-            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Coba Sekarang</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- LOYALTY SECTION -->
-    <section class="section section--alt loyalty" id="loyalty">
-      <div class="container section__header reveal">
-        <span class="section__label">Hadiah Frost</span>
-        <h2 class="section__title">Setiap scoop membuatmu makin dekat</h2>
-        <p class="section__desc">Ambil kartu cap pada kunjungan Anda berikutnya. Sepuluh cap mendapatkan scoop gratis — ditambah bonus istimewa di sepanjang jalan.</p>
-      </div>
-
-      <div class="container loyalty__layout">
-        <div class="loyalty__info reveal">
-          <div class="loyalty__perks">
-            <div class="perk">
-              <div class="perk__icon">&#10003;</div>
-              <p class="perk__text"><strong>Cap ke-5:</strong> Upgrade topping gratis di sundae atau cone apa pun — silakan, tambahkan gigitan brownie.</p>
-            </div>
-            <div class="perk">
-              <div class="perk__icon">&#10003;</div>
-              <p class="perk__text"><strong>Cap ke-10:</strong> Satu scoop tunggal gratis dalam rasa apa pun, termasuk musiman dan edisi terbatas.</p>
-            </div>
-            <div class="perk">
-              <div class="perk__icon">&#10003;</div>
-              <p class="perk__text"><strong>Bonus ulang tahun:</strong> Tunjukkan KTP Anda di bulan ulang tahun dan dapatkan upgrade cone wafel gratis sepanjang minggu.</p>
-            </div>
-            <div class="perk">
-              <div class="perk__icon">&#10003;</div>
-              <p class="perk__text"><strong>Hadiah rujukan:</strong> Bawa teman yang memulai kartu, dan Anda berdua mendapatkan cap bonus.</p>
-            </div>
-          </div>
-
-          <a href="#hero" class="btn btn--sage" style="margin-top: 2rem;">Mulai Kumpulkan</a>
-        </div>
-
-        <!-- Visual Kartu Cap -->
-        <div class="stamp-card reveal reveal-delay-1">
-          <div class="stamp-card__header">
-            <span class="stamp-card__title">Kartu Cap Anda</span>
-            <span class="stamp-card__count">7 / 10</span>
-          </div>
-          <div class="stamp-card__grid">
-            <div class="stamp stamp--filled">&#127846;</div>
-            <div class="stamp stamp--filled">&#127846;</div>
-            <div class="stamp stamp--filled">&#127846;</div>
-            <div class="stamp stamp--filled">&#127846;</div>
-            <div class="stamp stamp--reward stamp--filled">&#9733;</div>
-            <div class="stamp stamp--filled">&#127846;</div>
-            <div class="stamp stamp--filled">&#127846;</div>
-            <div class="stamp">&#127846;</div>
-            <div class="stamp">&#127846;</div>
-            <div class="stamp stamp--reward">FREE</div>
-          </div>
-          <p class="stamp-card__footer">3 scoop lagi sampai hadiah gratismu!</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container footer__top">
-        <div>
-          <div class="footer__brand">Fr<span>o</span>st</div>
-          <p class="footer__copy">Es krim dan gelato batch kecil, dibuat tangan setiap hari di dapur kami di Oak Street. Dibuat dengan cinta, disajikan dengan senyuman.</p>
-        </div>
-
-        <div class="footer__links">
-          <div class="footer__col">
-            <h4>Menu</h4>
-            <ul>
-              <li><a href="#flavors">Rasa</a></li>
-              <li><a href="#builder">Buat Sendiri</a></li>
-              <li><a href="#seasonal">Scoop Musiman</a></li>
-              <li><a href="#catering">Katering</a></li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4>Perusahaan</h4>
-            <ul>
-              <li><a href="#">Cerita Kami</a></li>
-              <li><a href="#">Sumber Bahan</a></li>
-              <li><a href="#">Karir</a></li>
-              <li><a href="#">Pers</a></li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4>Hubungi</h4>
-            <ul>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">Email</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="container footer__bottom">
-        <p>&copy; 2026 Frost Desserts. Hak cipta dilindungi undang-undang. Didesain oleh TemplateMo</p>
-      </div>
-    </footer>
-
-  </main>
-
-  <!-- Script Interaksi -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Sidebar Toggle Logic
-      const hamburger = document.getElementById('hamburger');
-      const sidebar = document.getElementById('sidebar');
-      const sidebarOverlay = document.getElementById('sidebarOverlay');
-      const navLinks = document.querySelectorAll('.sidebar__nav a');
-
-      function toggleSidebar() {
-        const isOpen = sidebar.classList.contains('is-open');
-        sidebar.classList.toggle('is-open');
-        sidebarOverlay.classList.toggle('is-open');
-        hamburger.setAttribute('aria-expanded', !isOpen);
-      }
-
-      hamburger.addEventListener('click', toggleSidebar);
-      sidebarOverlay.addEventListener('click', toggleSidebar);
-
-      // Tutup sidebar saat link diklik
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (sidebar.classList.contains('is-open')) toggleSidebar();
+            $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright           
         });
-      });
 
-      // 2. Seasonal Tabs Logic
-      const tabs = document.querySelectorAll('.seasonal-tab');
-      const panels = document.querySelectorAll('.seasonal-panel');
+    </script>             
 
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          // Hapus kelas aktif dari semua tab
-          tabs.forEach(t => {
-            t.classList.remove('is-active');
-            t.setAttribute('aria-selected', 'false');
-          });
-          
-          // Tambah kelas aktif ke tab yang diklik
-          tab.classList.add('is-active');
-          tab.setAttribute('aria-selected', 'true');
-
-          // Sembunyikan semua panel
-          panels.forEach(p => p.classList.remove('is-active'));
-
-          // Tampilkan panel target
-          const season = tab.getAttribute('data-season');
-          const targetPanel = document.getElementById(`panel-${season}`);
-          if (targetPanel) {
-            targetPanel.classList.add('is-active');
-          }
-        });
-      });
-
-      // 3. Scroll Reveal Animation Logic
-      const revealElements = document.querySelectorAll('.reveal');
-
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Hanya animasi sekali
-          }
-        });
-      }, {
-        root: null,
-        threshold: 0.15, // Memicu saat 15% elemen terlihat
-        rootMargin: "0px 0px -50px 0px"
-      });
-
-      revealElements.forEach(el => revealObserver.observe(el));
-    });
-  </script>
 </body>
 </html>
